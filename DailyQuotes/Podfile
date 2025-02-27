@@ -5,8 +5,8 @@ target 'DailyQuotes' do
   use_frameworks!
 
   # Pods for DailyQuotes
-  pod 'MijickNavigationView'
 
   pod 'DQCore', :path => 'DevPods/DQCore'
+  pod 'DQCommon', :path => 'DevPods/DQCommon'
 
 end
