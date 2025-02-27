@@ -7,4 +7,6 @@ target 'DailyQuotes' do
   # Pods for DailyQuotes
   pod 'MijickNavigationView'
 
+  pod 'DQCore', :path => 'DevPods/DQCore'
+
 end
