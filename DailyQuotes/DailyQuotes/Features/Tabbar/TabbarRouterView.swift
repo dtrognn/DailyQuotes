@@ -69,7 +69,7 @@ struct TabbarRouterView: View {
                     TabItem(tabType: .home)
                 }.tag(TabbarRouter.TabType.home)
 
-            SettingView()
+            SettingRouterView()
                 .tabItem {
                     TabItem(tabType: .setting)
                 }.tag(TabbarRouter.TabType.setting)

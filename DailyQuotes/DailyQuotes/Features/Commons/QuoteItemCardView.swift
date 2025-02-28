@@ -39,13 +39,13 @@ private extension QuoteItemCardView {
     var quoteText: some View {
         return Text("\"\(quote.quote)\"")
             .font(AppFont.semibold18)
-            .foregroundStyle(themeManager.activeTheme.textPrimaryColor)
+            .foregroundStyle(themeManager.activeTheme.textHightlightColor)
             .multilineTextAlignment(.center)
     }
 
     var authorText: some View {
         return Text(String(format: "- %@ -", quote.author))
             .font(AppFont.regular16)
-            .foregroundStyle(themeManager.activeTheme.textSecondaryColor)
+            .foregroundStyle(themeManager.activeTheme.textHightlightColor)
     }
 }

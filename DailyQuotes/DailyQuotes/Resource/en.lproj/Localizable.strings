@@ -2,3 +2,6 @@
 
 "Tabbar_A_01" = "Home";
 "Tabbar_A_02" = "Setting";
+
+"Setting_A_01" = "Dark mode";
+"Setting_A_02" = "Language settings";

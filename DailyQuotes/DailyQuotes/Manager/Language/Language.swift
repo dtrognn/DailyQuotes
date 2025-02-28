@@ -35,3 +35,9 @@ func language(_ keyLanguage: String) -> String {
 func language(_ keyLanguage: String) -> LocalizedStringKey {
     return LocalizedStringKey(keyLanguage)
 }
+
+extension Image {
+    static func image(_ name: String) -> Image {
+        return Image(name, bundle: Bundle.main)
+    }
+}
