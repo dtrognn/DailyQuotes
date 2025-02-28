@@ -8,5 +8,6 @@ target 'DailyQuotes' do
 
   pod 'DQCore', :path => 'DevPods/DQCore'
   pod 'DQCommon', :path => 'DevPods/DQCommon'
+  pod 'DQAPILayer', :path => 'DevPods/DQAPILayer'
 
 end
