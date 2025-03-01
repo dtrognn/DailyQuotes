@@ -30,6 +30,9 @@ public class NaviBarConfiguration: ObservableObject {
         self.showBackButton = showBackButton
         self.showUnderline = showUnderline
         self.setBackgroundColor = setBackgroundColor
+        self.rightButton = rightButton
+        self.onBackAction = onBackAction
+        self.onSelectRightButton = onSelectRightButton
     }
 }
 
@@ -41,7 +44,7 @@ public class ScreenConfiguration: ObservableObject {
     public init(
         showNaviBar: Bool = true,
         naviBarConfiguration: NaviBarConfiguration,
-        hidesBottomBarWhenPushed: Bool)
+        hidesBottomBarWhenPushed: Bool = true)
     {
         self.showNaviBar = showNaviBar
         self.naviBarConfiguration = naviBarConfiguration
