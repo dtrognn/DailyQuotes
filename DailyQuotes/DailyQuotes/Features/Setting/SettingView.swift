@@ -44,7 +44,7 @@ private extension SettingView {
 
     var languageSettingRowView: some View {
         return RowCommonView(title: language("Setting_A_02"), image: "ic_cm_world", showUnderline: false) {
-            // TODO: -
+            router.route(to: SettingDestination.language)
         }
     }
 }

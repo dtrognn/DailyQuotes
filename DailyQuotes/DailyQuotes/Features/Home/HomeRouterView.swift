@@ -15,9 +15,9 @@ struct HomeRouterView: View {
     var body: some View {
         NavigationStack(path: $router.navigationPath) {
             HomeView()
-                .environmentObject(router)
-        }.navigationDestination(for: HomeDestination.self) { _ in
-            //
-        }
+                .navigationDestination(for: HomeDestination.self) { _ in
+                    //
+                }
+        }.environmentObject(router)
     }
 }

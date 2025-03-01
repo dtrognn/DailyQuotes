@@ -8,7 +8,9 @@
 import DQCommon
 import SwiftUI
 
-enum SettingDestination: Route {}
+enum SettingDestination: Route {
+    case language
+}
 
 struct SettingRouterView: View {
     @StateObject private var router = Router()
@@ -16,9 +18,12 @@ struct SettingRouterView: View {
     var body: some View {
         NavigationStack(path: $router.navigationPath) {
             SettingView()
-                .environmentObject(router)
-        }.navigationDestination(for: SettingDestination.self) { _ in
-            //
-        }
+                .navigationDestination(for: SettingDestination.self) { destination in
+                    switch destination {
+                    case .language:
+                        LanguageSettingView()
+                    }
+                }
+        }.environmentObject(router)
     }
 }
