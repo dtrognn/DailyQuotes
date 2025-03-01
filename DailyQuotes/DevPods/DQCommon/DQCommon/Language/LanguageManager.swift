@@ -11,11 +11,12 @@ import SwiftUI
 public enum LanguageCode: String {
     case vi
     case en
+    case ja
     case system
 
     public func getLanguageCode() -> String {
         switch self {
-        case .vi, .en:
+        case .vi, .en, .ja:
             return rawValue
         case .system:
             let systemLanguage = Locale.current.language.languageCode?.identifier
