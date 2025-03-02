@@ -5,6 +5,7 @@
 //  Created by dtrognn on 27/2/25.
 //
 
+import Combine
 import SwiftUI
 
 public enum ThemeType: Int {
@@ -16,6 +17,8 @@ public final class ThemeManager: ObservableObject {
     public static let shared = ThemeManager()
 
     @Published public var currentTheme: AppTheme
+    public var onChangeTheme = PassthroughSubject<Void, Never>()
+
     private var theme: ThemeType
 
     private let KEY_APP_THEME = "KEY_APP_THEME"
@@ -29,6 +32,7 @@ public final class ThemeManager: ObservableObject {
         {
             theme = savedTheme
             currentTheme = savedTheme == .dark ? .darkTheme : .lightTheme
+            setupTheme(currentTheme)
         }
     }
 
@@ -37,7 +41,11 @@ public final class ThemeManager: ObservableObject {
             let initialTheme = colorScheme == .dark ? ThemeType.dark : ThemeType.light
             theme = initialTheme
             currentTheme = initialTheme == .dark ? .darkTheme : .lightTheme
-            saveThemeToLocal(initialTheme)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                self.setupTheme(self.currentTheme)
+                self.saveThemeToLocal(initialTheme)
+            }
         }
     }
 
@@ -51,12 +59,25 @@ public final class ThemeManager: ObservableObject {
 
     public func setTheme(_ theme: ThemeType) {
         currentTheme = theme == .dark ? .darkTheme : .lightTheme
+        onChangeTheme.send(())
+        setupTheme(currentTheme)
         saveThemeToLocal(theme)
     }
+}
 
+extension ThemeManager {
     private func saveThemeToLocal(_ theme: ThemeType) {
         self.theme = theme
         UserDefaults.standard.set(theme.rawValue, forKey: KEY_APP_THEME)
         UserDefaults.standard.synchronize()
+    }
+
+    private func setupTheme(_ theme: AppTheme) {
+        let tabbarAppearance = UITabBarAppearance()
+        tabbarAppearance.configureWithDefaultBackground()
+        tabbarAppearance.backgroundColor = theme.tabbarBackgroundColor.asUIColor()
+
+        UITabBar.appearance().standardAppearance = tabbarAppearance
+        UITabBar.appearance().scrollEdgeAppearance = tabbarAppearance
     }
 }

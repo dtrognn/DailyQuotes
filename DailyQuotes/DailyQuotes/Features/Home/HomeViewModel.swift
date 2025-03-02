@@ -9,6 +9,7 @@ import DQAPILayer
 
 final class HomeViewModel: BaseViewModel {
     @Published var quotes: [QuoteItemViewData] = []
+    @Published var authors: [AuthorItemViewData] = []
     @Published var tags: [String] = []
     @Published var tagsSelected: Set<String> = []
 
@@ -18,6 +19,7 @@ final class HomeViewModel: BaseViewModel {
         if !isLoadData {
             apiGetRandomQuotes()
             apiGetAvailableTags()
+            apiGetAvailableAuthors()
             isLoadData = true
         }
     }
@@ -83,6 +85,20 @@ extension HomeViewModel {
                 let quote = QuoteItemViewData(response)
                 self.quotes = [quote]
             }.store(in: &cancellableSet)
+    }
+
+    private func apiGetAvailableAuthors() {
+        let params = GetAvailableAuthorsEndpoint.Request()
+        GetAvailableAuthorsEndpoint.service.request(parameters: params)
+            .sink { [weak self] error in
+                guard let self = self else { return }
+                self.handleError(error)
+            } receiveValue: { [weak self] response in
+                guard let self = self else { return }
+                self.authors = response.compactMap { data -> AuthorItemViewData in
+                    .init(name: data.key, numberOfQuote: data.value)
+                }
+            }.cancel()
     }
 }
 
