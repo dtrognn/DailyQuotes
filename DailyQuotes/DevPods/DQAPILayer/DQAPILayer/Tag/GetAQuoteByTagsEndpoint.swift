@@ -9,18 +9,24 @@ import DQCore
 import Foundation
 
 public struct GetAQuoteByTagsEndpoint: Endpoint {
-    public static func service(_ tags: String) -> GetAQuoteByTagsEndpoint {
-        var service = GetAQuoteByTagsEndpoint()
-        service.path = String(format: service.path, tags)
-        return service
-    }
+//    public static func service(_ tags: String) -> GetAQuoteByTagsEndpoint {
+//        var service = GetAQuoteByTagsEndpoint()
+//        service.path = String(format: service.path, tags)
+//        return service
+//    }
 
-    public var path: String = "/api/quotes/random?tags=%@"
+    public static var service = GetAQuoteByTagsEndpoint()
+
+    public var path: String = "/api/quotes/random"
     public var method: HTTPMethod = .GET
     public var headers: [String: String]? = nil
 
     public struct Request: Codable {
-        public init() {}
+        public let tags: String
+
+        public init(tags: String) {
+            self.tags = tags
+        }
     }
 
     public struct Response: Codable {
