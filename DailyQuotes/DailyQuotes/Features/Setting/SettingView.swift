@@ -28,6 +28,7 @@ struct SettingView: View {
 
                 VStack(spacing: LayoutSize.zeroSpacing) {
                     languageSettingRowView
+                    favoriteQuoteRowView
                 }.background(themeManager.activeTheme.rowCommonColor)
                     .cornerRadius(LayoutSize.mediumRadius)
             }.padding(.all, LayoutSize.mediumPadding)
@@ -43,8 +44,22 @@ private extension SettingView {
     }
 
     var languageSettingRowView: some View {
-        return RowCommonView(title: language("Setting_A_02"), image: "ic_cm_world", showUnderline: false) {
+        return RowCommonView(
+            title: language("Setting_A_02"),
+            image: "ic_cm_world",
+            showUnderline: true)
+        {
             router.route(to: SettingDestination.language)
+        }
+    }
+
+    var favoriteQuoteRowView: some View {
+        return RowCommonView(
+            title: language("Setting_A_03"),
+            image: "ic_cm_bookmark",
+            showUnderline: false)
+        {
+            // TODO: -
         }
     }
 }
