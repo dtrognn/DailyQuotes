@@ -12,6 +12,7 @@ public protocol Theme {
     var accentColor: Color { get }
     var primaryColor: Color { get }
     var secondaryColor: Color { get }
+    var rowCommonColor: Color { get }
 
     var textPrimaryColor: Color { get }
     var textSecondaryColor: Color { get }
@@ -27,6 +28,7 @@ public protocol Theme {
     var navigationButtonColor: Color { get }
 
     var tabbarSelectedColor: Color { get }
+    var tabbarBackgroundColor: Color { get }
 
     func themeFor(scheme: ColorScheme) -> Self
 }
@@ -36,6 +38,7 @@ public struct AppTheme: Theme {
     public var accentColor: Color
     public var primaryColor: Color
     public var secondaryColor: Color
+    public var rowCommonColor: Color
 
     public var textPrimaryColor: Color
     public var textSecondaryColor: Color
@@ -49,13 +52,16 @@ public struct AppTheme: Theme {
     public var navigationBackgroundColor: Color
     public var navigationTextColor: Color
     public var navigationButtonColor: Color
-    public var tabbarSelectedColor: Color
 
-    internal init(
+    public var tabbarSelectedColor: Color
+    public var tabbarBackgroundColor: Color
+
+    init(
         backgroundColor: Color,
         accentColor: Color,
         primaryColor: Color,
         secondaryColor: Color,
+        rowCommonColor: Color,
         textPrimaryColor: Color,
         textSecondaryColor: Color,
         textHightlightColor: Color,
@@ -66,12 +72,14 @@ public struct AppTheme: Theme {
         navigationBackgroundColor: Color,
         navigationTextColor: Color,
         navigationButtonColor: Color,
-        tabbarSelectedColor: Color)
+        tabbarSelectedColor: Color,
+        tabbarBackgroundColor: Color)
     {
         self.backgroundColor = backgroundColor
         self.accentColor = accentColor
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
+        self.rowCommonColor = rowCommonColor
         self.textPrimaryColor = textPrimaryColor
         self.textSecondaryColor = textSecondaryColor
         self.textHightlightColor = textHightlightColor
@@ -83,6 +91,7 @@ public struct AppTheme: Theme {
         self.navigationTextColor = navigationTextColor
         self.navigationButtonColor = navigationButtonColor
         self.tabbarSelectedColor = tabbarSelectedColor
+        self.tabbarBackgroundColor = tabbarBackgroundColor
     }
 
     public func themeFor(scheme: ColorScheme) -> AppTheme {
@@ -97,39 +106,43 @@ public struct AppTheme: Theme {
 public extension AppTheme {
     static var darkTheme: Self {
         return .init(
-            backgroundColor: .black,
-            accentColor: .black,
-            primaryColor: .black,
+            backgroundColor: Color(hexString: "#14213d")!,
+            accentColor: Color(hexString: "#83c5be")!,
+            primaryColor: Color(hexString: "#83c5be")!,
             secondaryColor: .black,
-            textPrimaryColor: .black,
-            textSecondaryColor: .black,
+            rowCommonColor: Color(hexString: "#778da9")!,
+            textPrimaryColor: .white,
+            textSecondaryColor: .white,
             textHightlightColor: .black,
             buttonEnableBackgroundColor: .black,
             buttonEnableTextColor: .black,
             buttonDisableBackgroundColor: .black,
             buttonDisableTextColor: .black,
-            navigationBackgroundColor: .black,
-            navigationTextColor: .black,
-            navigationButtonColor: .black,
-            tabbarSelectedColor: .black)
+            navigationBackgroundColor: Color(hexString: "#14213d")!,
+            navigationTextColor: .white,
+            navigationButtonColor: .white,
+            tabbarSelectedColor: Color(hexString: "#83c5be")!,
+            tabbarBackgroundColor: Color(hexString: "#14213d")!)
     }
 
     static var lightTheme: Self {
         return .init(
-            backgroundColor: .white,
-            accentColor: .black,
-            primaryColor: .black,
-            secondaryColor: .black,
-            textPrimaryColor: .black,
-            textSecondaryColor: .black,
-            textHightlightColor: .black,
+            backgroundColor: Color(hexString: "#FAF2E1")!,
+            accentColor: Color(hexString: "#83c5be")!,
+            primaryColor: Color(hexString: "#83c5be")!,
+            secondaryColor: Color(hexString: "#83c5be")!,
+            rowCommonColor: Color(hexString: "#e3d5ca")!,
+            textPrimaryColor: Color(hexString: "#0d1321")!,
+            textSecondaryColor: Color(hexString: "#8b8c89")!,
+            textHightlightColor: .white,
             buttonEnableBackgroundColor: .black,
             buttonEnableTextColor: .black,
             buttonDisableBackgroundColor: .black,
             buttonDisableTextColor: .black,
-            navigationBackgroundColor: .white,
+            navigationBackgroundColor: Color(hexString: "#FAF2E1")!,
             navigationTextColor: .black,
             navigationButtonColor: .black,
-            tabbarSelectedColor: .black)
+            tabbarSelectedColor: Color(hexString: "#83c5be")!,
+            tabbarBackgroundColor: Color(hexString: "#FAF2E1")!)
     }
 }

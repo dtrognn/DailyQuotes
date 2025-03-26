@@ -1,15 +1,15 @@
 //
 //  DefaultLoadingConfiguration.swift
-//  DQCommon
+//  DailyQuotes
 //
-//  Created by dtrognn on 27/2/25.
+//  Created by dtrognn on 26/3/25.
 //
 
-import Foundation
+import DQCommon
 import SVProgressHUD
 
 public class DefaultLoadingConfiguration: ILoadingConfiguration {
-    public init() { }
+    public init() {}
 
     public func configure() {
         SVProgressHUD.setDefaultMaskType(.black)

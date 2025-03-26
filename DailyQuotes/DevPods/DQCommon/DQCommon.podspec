@@ -30,7 +30,4 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'DQCommon/**/*.{swift,h,m}'
   s.resources = 'DQCommon/**/*.{png,xcassets,json,ttf,txt,storyboard,xib,xcdatamodeld,strings}'
-
-  s.dependency 'SVProgressHUD'
-  s.dependency 'NotificationBannerSwift'
 end

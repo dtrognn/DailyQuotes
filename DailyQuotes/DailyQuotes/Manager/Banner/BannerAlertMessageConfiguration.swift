@@ -1,10 +1,11 @@
 //
 //  BannerAlertMessageConfiguration.swift
-//  DQCommon
+//  DailyQuotes
 //
-//  Created by dtrognn on 27/2/25.
+//  Created by dtrognn on 26/3/25.
 //
 
+import DQCommon
 import Foundation
 import NotificationBannerSwift
 
