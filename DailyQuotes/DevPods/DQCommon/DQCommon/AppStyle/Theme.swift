@@ -113,7 +113,7 @@ public extension AppTheme {
             rowCommonColor: Color(hexString: "#778da9")!,
             textPrimaryColor: .white,
             textSecondaryColor: .white,
-            textHightlightColor: .black,
+            textHightlightColor: .white,
             buttonEnableBackgroundColor: .black,
             buttonEnableTextColor: .black,
             buttonDisableBackgroundColor: .black,

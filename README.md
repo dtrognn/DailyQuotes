@@ -68,6 +68,13 @@ cd DailyQuote && pod install
 - Add historical sentiment trends
 - Implement custom model training pipeline
 - Add shareable quote cards
+- Add widget support
+- Add favorite quote
+
+## Screen shoot
+|  |  |
+|---------|---------|
+| ![](/Resources/screen_shoot_1.png) | ![](/Resources/screen_shoot_2.png) |
 
 ## 🤝 Contributing
 Pull requests welcome! For major changes, please open an issue first to discuss proposed changes.
