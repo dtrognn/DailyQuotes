@@ -25,10 +25,7 @@ A SwiftUI application that combines API integration with CoreML to deliver inspi
 1. Fetch quote from API
 2. Preprocess text for CoreML input
 3. Run inference using `SentimentPolarity.mlmodel`
-4. Generate gradient based on prediction confidence:
-   - 🔵 Blue Gradient (Positive)
-   - 🔴 Red Gradient (Negative)
-   - ⚪ Neutral (Mixed/Uncertain)
+4. Generate gradient based on prediction confidence
 
 ## 🛠 Technical Stack
 - **UI Framework**: SwiftUI
